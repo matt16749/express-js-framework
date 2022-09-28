@@ -5,6 +5,9 @@ To provide a quick JS framework for anyone to start developing applications. We 
 
 This is mainly for Backend Api development but can be extended to include FE.
 
+## Runbook
+`npm run watch`: Will hot reload everything in /src and /public. Review nodemon.json for more config
+
 ## Guidelines
 [JSON API](https://jsonapi.org/)
 
