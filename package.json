@@ -4,29 +4,44 @@
   "private": true,
   "scripts": {
     "start": "npm run prod",
-    "server": "babel-node ./src/bin/www",
+    "server": "babel-node --inspect ./src/bin/www",
     "server:prod": "node ./dist/bin/www",
     "dev": "NODE_ENV=development npm-run-all server",
     "clean": "rimraf dist",
     "build": "babel ./src --out-dir dist",
     "prod": "NODE_ENV=production npm-run-all clean build server:prod",
-    "watch": "nodemon"
+    "watch": "nodemon",
+    "db-migrate": "node node_modules/db-migrate/bin/db-migrate",
+    "db:create": "npm run db-migrate db:create",
+    "db:drop": "npm run db-migrate db:drop",
+    "db:create-migration": "npm run db-migrate create",
+    "db:migrate": "npm run db-migrate up --sql-file",
+    "db:rollback": "npm run db-migrate down --sql-file",
+    "seed": "babel-node ./seeder.js"
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",
+    "db-migrate": "^0.11.13",
+    "db-migrate-pg": "^1.2.2",
     "debug": "~2.6.9",
     "express": "~4.16.1",
     "hbs": "~4.0.4",
     "http-errors": "~1.6.3",
+    "knex": "^2.3.0",
     "morgan": "~1.9.1",
     "npm-run-all": "^4.1.5",
-    "rimraf": "^3.0.2"
+    "objection": "^3.0.1",
+    "pg": "^8.8.0",
+    "rimraf": "^3.0.2",
+    "uuid": "^9.0.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.19.3",
     "@babel/core": "^7.19.3",
     "@babel/node": "^7.19.1",
     "@babel/preset-env": "^7.19.3",
+    "@faker-js/faker": "^7.5.0",
+    "factory-bot": "^6.3.1",
     "nodemon": "^2.0.20"
   }
 }

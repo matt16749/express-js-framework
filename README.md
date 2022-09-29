@@ -38,5 +38,6 @@ This is mainly for Backend Api development but can be extended to include FE.
 ||[SinonJs](https://sinonjs.org/releases/latest/)| Spies, Stubs, Mocks |
 ||[Rewire](https://github.com/jhnns/rewire)| Dependency Injection |
 ||[Istanbul](https://istanbul.js.org/docs/tutorials/mocha/)| Test Coverage |
+||[FactoryBot](https://github.com/ratson/factory-bot#readme)|Seed Data|
 |Event Messaging|||
 ||[KafkaJs](https://kafka.js.org/docs/introduction)|Event Messaging System|

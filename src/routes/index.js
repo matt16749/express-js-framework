@@ -1,10 +1,8 @@
-// routes/index.js
 import express from 'express';
-var router = express.Router();
+import { defaultRoutes } from './defaultRoutes';
+import { usersRoutes } from './usersRoutes';
 
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
-});
+export const routes = express.Router();
 
-export default router;
+routes.use(defaultRoutes);
+routes.use('/users', usersRoutes)
