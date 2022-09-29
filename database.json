@@ -2,6 +2,7 @@
   "development": {
     "driver": "pg",
     "host": "localhost",
+    "database": "development",
     "port": 5432
   }
 }

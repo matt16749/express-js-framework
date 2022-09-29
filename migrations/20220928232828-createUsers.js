@@ -1,3 +1,6 @@
+// TODO: MIgration tool doesn't seem to work
+
+
 'use strict';
 
 var dbm;
@@ -14,8 +17,8 @@ exports.setup = function(options, seedLink) {
   seed = seedLink;
 };
 
-exports.up = function(db) {
-  return db.createTable('users', {
+exports.up = function(db, callback) {
+  db.createTable('users', {
     id: {
       type: 'string',
       primaryKey: true,
@@ -40,11 +43,11 @@ exports.up = function(db) {
     last_login: {
       type: 'timestamp'
     }
-  });
+  }, callback);
 };
 
-exports.down = function(db) {
-  return db.dropTable('users');
+exports.down = function(db, callback) {
+  return db.dropTable('users', callback);
 };
 
 exports._meta = {

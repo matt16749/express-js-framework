@@ -41,10 +41,7 @@ console.log('*******')
         id: { type: 'string' },
         firstName: { type: 'string' },
         lastName: { type: 'string' },
-        email: { type: 'string' },
-        createdAt: { type: 'string' },
-        updatedAt: { type: 'string' },
-        lastLogin: { type: 'string'}
+        email: { type: 'string' }
       }
     }
   }

@@ -8,8 +8,8 @@ const seedUser = async () => {
     id: uuidv4(),
     firstName: faker.name.firstName(),
     lastName: faker.name.lastName(),
-    email: faker.internet.email(),
-    createdAt: JSON.stringify(Date.now())
+    email: faker.internet.email()
+    createdAt: new Date()
   });
 }
 
