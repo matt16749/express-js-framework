@@ -1,0 +1,19 @@
+<form action='/updateUser' method='post' id="updateUser">
+  <h1>Edit User</h1>
+  <div class="field">
+    <label for="name">First Name:</label>
+    <input type="text" id="firstName" name="firstName" value="{{user.firstName}}" />
+    <small></small>
+  </div>
+  <div class="field">
+    <label for="name">Last Name:</label>
+    <input type="text" id="lastName" name="lastName" value="{{user.lastName}}" />
+    <small></small>
+  </div>
+  <div class="field">
+    <label for="name">Email:</label>
+    <input type="text" id="email" name="email" value="{{user.email}}" />
+    <small></small>
+  </div>
+  <button type="submit">Submit</button>
+</form>

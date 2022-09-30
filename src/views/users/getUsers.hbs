@@ -1,19 +1,14 @@
 <table class="table-primary">
   <thead>
     <tr>
-      <th scope="col">id</th>
-      <th scope="col">First</th>
-      <th scope="col">Last</th>
       <th scope="col">email</th>
     </tr>
   </thead>
   <tbody>
     {{#each users}}
     <tr>
-      <th scope='row'>{{this.id}}</th>
-      <td>{{this.firstName}}</td>
-      <td>{{this.lastName}}</td>
       <td>{{this.email}}</td>
+      <td><a href="/users/{{this.id}}">Edit</a></td>
     </tr>
     {{/each}}
   </tbody>
