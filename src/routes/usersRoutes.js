@@ -1,15 +1,17 @@
 import { Router } from 'express';
 const usersRoutes = Router();
 const {
-  logHelloUserMiddleware
+  setUsers
 } = require('../middleware/users');
+const { setInternalParams } = require('../middleware');
 const {
   getUsersController
 } = require('../controllers/users');
 
 usersRoutes.get(
   '/',
-  logHelloUserMiddleware,
+  setInternalParams,
+  setUsers,
   getUsersController
 );
 

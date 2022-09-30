@@ -7,6 +7,7 @@ This is mainly for Backend Api development but can be extended to include FE.
 
 ## Runbook
 `npm run watch`: Will hot reload everything in /src and /public. Review nodemon.json for more config
+open new tab in chrome, navigate to chrome://inspect and choose either open dedicated DevTools for Node or Remote Target
 
 ## Guidelines
 [JSON API](https://jsonapi.org/)

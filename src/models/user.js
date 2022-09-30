@@ -1,4 +1,4 @@
-import { v4 as uuidv4 } from 'uuid';
+const { v4: uuidv4 } = require('uuid');
 const { Model, snakeCaseMappers } = require('objection');
 const Knex = require('knex');
 const knexConfig = require('../../knexfile');
@@ -15,18 +15,16 @@ class User extends Model {
   }
 
   async $beforeInsert(queryContext) {
-// TODO: Not sure why this wont work
-console.log('*******')
     await super.$beforeInsert(queryContext);
 
-    this.createdAt = Date.now();
     this.id = uuidv4();
+    this.createdAt = new Date().toISOString();
   }
 
   async $beforeUpdate(queryContext) {
     await super.$beforeUpdate(queryContext);
 
-    this.updatedAt = Date.now();
+    this.updatedAt = new Date().toISOString();
   }
 
   static get columnNameMappers() {
@@ -36,12 +34,14 @@ console.log('*******')
   static get jsonSchema() {
     return {
       type: 'object',
-      required: ['id'],
       properties: {
         id: { type: 'string' },
         firstName: { type: 'string' },
         lastName: { type: 'string' },
-        email: { type: 'string' }
+        email: { type: 'string' },
+        createdAt: { type: 'object' },
+        updatedAt: { type: 'object' },
+        lastLogin: { type: 'object' }
       }
     }
   }

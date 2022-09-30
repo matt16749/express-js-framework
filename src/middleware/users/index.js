@@ -1,3 +1,3 @@
 module.exports = {
-  logHelloUserMiddleware: require('./logHelloUserMiddleware')
+  setUsers: require('./setUsers')
 }

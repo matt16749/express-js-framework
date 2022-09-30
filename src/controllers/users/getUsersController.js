@@ -1,8 +1,9 @@
 const getUsersController = (req, res, next) => {
-  const { user } = req.internalParams;
+  const { users } = req.internalParams;
 
   try {
-    res.json(user);
+    res.render('users/getUsers.hbs', { users });
+    // res.json({ users });
   } catch(e) {
     res.status(e.status || 500);
     res.render('error');

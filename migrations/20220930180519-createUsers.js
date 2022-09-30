@@ -21,9 +21,7 @@ exports.up = function(db, callback) {
   db.createTable('users', {
     id: {
       type: 'string',
-      primaryKey: true,
-      notNull: true,
-      autoIncrement: true
+      notNull: true
     },
     first_name: {
       type: 'string'
@@ -47,7 +45,7 @@ exports.up = function(db, callback) {
 };
 
 exports.down = function(db, callback) {
-  return db.dropTable('users', callback);
+  db.dropTable('users', callback);
 };
 
 exports._meta = {
