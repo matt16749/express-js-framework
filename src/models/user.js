@@ -1,5 +1,6 @@
 const { v4: uuidv4 } = require('uuid');
 const { Model, snakeCaseMappers } = require('objection');
+const BaseModel = require('./baseModel')
 const Knex = require('knex');
 const knexConfig = require('../../knexfile');
 // Initialize knex.
@@ -9,7 +10,7 @@ const knex = Knex(knexConfig.development);
 // your model classes.
 Model.knex(knex);
 
-class User extends Model {
+class User extends BaseModel {
   static get tableName() {
     return 'users';
   }
@@ -18,13 +19,6 @@ class User extends Model {
     await super.$beforeInsert(queryContext);
 
     this.id = uuidv4();
-    this.createdAt = new Date().toISOString();
-  }
-
-  async $beforeUpdate(queryContext) {
-    await super.$beforeUpdate(queryContext);
-
-    this.updatedAt = new Date().toISOString();
   }
 
   static get columnNameMappers() {
@@ -39,9 +33,9 @@ class User extends Model {
         firstName: { type: 'string' },
         lastName: { type: 'string' },
         email: { type: 'string' },
-        createdAt: { type: 'object' },
-        updatedAt: { type: 'object' },
-        lastLogin: { type: 'object' }
+        createdAt: { type: 'string', format: 'date-time' },
+        updatedAt: { type: 'string', format: 'date-time' },
+        lastLogin: { type: 'string', format: 'date-time' }
       }
     }
   }

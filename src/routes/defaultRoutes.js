@@ -3,7 +3,7 @@ import { Router } from 'express';
 const defaultRoutes = Router();
 
 defaultRoutes.get('/', (req, res, next) => {
-  res.redirect('/users')
+  res.render('root.hbs')
 });
 
 module.exports = {
